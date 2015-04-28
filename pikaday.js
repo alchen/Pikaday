@@ -658,6 +658,16 @@
             return !isDate(this._d) ? '' : hasMoment ? moment(this._d).format(format || this._o.format) : this._d.toDateString();
         },
 
+        getStartString: function(format)
+        {
+            return this.toString(format);
+        },
+
+        getEndString: function(format)
+        {
+            return !isDate(this._e) ? '' : hasMoment ? moment(this._e).format(format || this._o.format) : this._e.toDateString();
+        },
+
         /**
          * return a Moment.js object of the current selection (if available)
          */
@@ -687,7 +697,7 @@
         /**
          * return a Date object of the last day in the current selection
          */
-        getLastDate: function()
+        getEndDate: function()
         {
             return isDate(this._e) ? new Date(this._e.getTime()) : null;
         },
